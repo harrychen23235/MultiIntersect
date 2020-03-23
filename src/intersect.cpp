@@ -132,11 +132,11 @@ bool Line_Process(Line* input1, double x, double y) {
     if (input1->mtype == "S") return Seg_Process(x, y, (Seg*)input1);
 }
 void L2L_Special(Line* input1, Line* input2, int ifspecial, unordered_set<Point*, Hash_Point, Equal_Point>& g_allpoint) {
-    if (input1->mtype == "L" || input2->mtype == "L");//throw string("infinite point");
+    if (input1->mtype == "L" || input2->mtype == "L")throw string("infinite point");
     else if (input1->mtype == "R" && input2->mtype == "R") {
         if (abs(input1->ma - input2->ma) <= EPS && abs(input1->mb - input2->mb) <= EPS) {
             if (((Ray*)input1)->direction == ((Ray*)input2)->direction) {
-                //throw string("infinite point");
+                throw string("infinite point");
             }
             else {
                 g_allpoint.insert(new Point(input1->ma, input1->mb));
@@ -145,7 +145,7 @@ void L2L_Special(Line* input1, Line* input2, int ifspecial, unordered_set<Point*
         }
         else {
             int direction = DirectionGet(((Ray*)input1)->mx1, ((Ray*)input1)->my1, ((Ray*)input2)->mx1, ((Ray*)input2)->my1);
-            if (direction == ((Ray*)input1)->direction);// throw string("infinite point");
+            if (direction == ((Ray*)input1)->direction) throw string("infinite point");
             else return;
         }
     }
@@ -162,7 +162,7 @@ void L2L_Special(Line* input1, Line* input2, int ifspecial, unordered_set<Point*
         }
         int direction1 = DirectionGet(r1->mx1, r1->my1, s1->mx1, s1->my1);
         int direction2 = DirectionGet(r1->mx1, r1->my1, s1->mx2, s1->my2);
-        if (direction1 == r1->direction || direction2 == r1->direction);// throw string("infinite point");
+        if (direction1 == r1->direction || direction2 == r1->direction) throw string("infinite point");
         else if (direction1 == 0 || direction2 == 0) g_allpoint.insert(new Point(r1->mx1, r1->my1));
         else return;
     }
@@ -182,7 +182,7 @@ void L2L_Special(Line* input1, Line* input2, int ifspecial, unordered_set<Point*
             else g_allpoint.insert(new Point(s1->mx2, s1->my2));
         }
         else if (smallx1 > largex2 || smallx2 > largex1) return;
-        else;// throw string("infinite point");
+        else throw string("infinite point");
     }
 }
 void L2L(Line* input1, Line* input2, unordered_set<Point*, Hash_Point, Equal_Point>& g_allpoint) {

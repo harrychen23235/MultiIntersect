@@ -101,9 +101,9 @@ Shape* ShapeFactory:: GetShape(string type){
         cin >> temp3;
         cin >> temp4;
         if (RangeJudge(temp1) || RangeJudge(temp2) || RangeJudge(temp3) || RangeJudge(temp4))
-         //   throw string("coordinate out of range");
+            throw string("coordinate out of range");
         if (abs(temp1 - temp3) <= EPS && abs(temp2 - temp4) <= EPS) {
-          //  throw string("same point in a line");
+            throw string("same point in a line");
         }
         if (temp1 == temp3) return new Line(temp1, 0, 1);
         else return new Line((temp4 - temp2) / (temp3 - temp1), temp2 - (temp4 - temp2) / (temp3 - temp1) * temp1, 0);
@@ -114,9 +114,9 @@ Shape* ShapeFactory:: GetShape(string type){
         cin >> temp2;
         cin >> temp3;
         if (RangeJudge(temp1) || RangeJudge(temp2))
-         //   throw string("coordinate out of range");
+           throw string("coordinate out of range");
         if ( temp3 <= 0 ) {
-           // throw string("radius must be greater than 0");
+           throw string("radius must be greater than 0");
         }
         return new Circle(temp1, temp2, temp3);
     }
@@ -127,9 +127,9 @@ Shape* ShapeFactory:: GetShape(string type){
         cin >> temp3;
         cin >> temp4;
         if (RangeJudge(temp1) || RangeJudge(temp2) || RangeJudge(temp3) || RangeJudge(temp4))
-          //  throw string("coordinate out of range");
+            throw string("coordinate out of range");
         if (abs(temp1 - temp3) <= EPS && abs(temp2 - temp4) <= EPS) {
-          //  throw string("same point in a line");
+            throw string("same point in a line");
         }
         if (temp1 == temp3) return new Ray(temp1, 0, 1, temp1, temp2, temp3, temp4);
         else return new Ray((temp4 - temp2) / (temp3 - temp1), temp2 - (temp4 - temp2) / (temp3 - temp1) * temp1, 0, temp1, temp2, temp3, temp4);
@@ -141,15 +141,15 @@ Shape* ShapeFactory:: GetShape(string type){
         cin >> temp3;
         cin >> temp4;
         if (RangeJudge(temp1) || RangeJudge(temp2) || RangeJudge(temp3) || RangeJudge(temp4))
-           // throw string("coordinate out of range");
+            throw string("coordinate out of range");
         if (abs(temp1 - temp3) <= EPS && abs(temp2 - temp4) <= EPS) {
-          //  throw string("same point in a line");
+            throw string("same point in a line");
         }
         if (temp1 == temp3) return new Seg(temp1, 0, 1, temp1, temp2, temp3, temp4);
         else return new Seg((temp4 - temp2) / (temp3 - temp1), temp2 - (temp4 - temp2) / (temp3 - temp1) * temp1, 0, temp1, temp2, temp3, temp4);
     }
     else {
-        //throw"UNKNOWN TYPE";
+        throw string("UNKNOWN TYPE");
     }
     return NULL;
 
@@ -157,16 +157,16 @@ Shape* ShapeFactory:: GetShape(string type){
 Shape* ShapeFactory::GetShape(string type, double temp1, double temp2, double temp3, double temp4) {
     if (type == "L" || type == "R" || type == "S") {
         if (abs(temp1 - temp3) <= EPS && abs(temp2 - temp4) <= EPS) {
-            //throw string("same point in a line");
+            throw string("same point in a line");
         }
-        if (RangeJudge(temp1) || RangeJudge(temp2) || RangeJudge(temp3) || RangeJudge(temp4));
-           // throw string("coordinate out of range");
+        if (RangeJudge(temp1) || RangeJudge(temp2) || RangeJudge(temp3) || RangeJudge(temp4))
+            throw string("coordinate out of range");
     }
     if (type == "C") {
         if (RangeJudge(temp1) || RangeJudge(temp2))
-            //throw string("coordinate out of range");
+            throw string("coordinate out of range");
         if ( temp3 <= 0 ) {
-           // throw string("radius must be greater than 0");
+           throw string("radius must be greater than 0");
         }
     }
           if (type == "L") {
@@ -185,7 +185,7 @@ Shape* ShapeFactory::GetShape(string type, double temp1, double temp2, double te
               return new Circle(temp1, temp2, temp3);
           }
           else {
-              throw"UNKNOWN TYPE";
+              throw string("UNKNOWN TYPE");
           }
           return NULL;
 

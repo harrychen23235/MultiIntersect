@@ -1064,6 +1064,122 @@ namespace UnitTest1
 			Assert::AreEqual(1, result);
 
 		};
+		TEST_METHOD(TestMethod46)
+		{
+			FILE* stream1;
+			freopen_s(&stream1, "G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt", "wt", stdout);
+			printf("%d\n", 1);
+			printf("C 0 0 0\n");
+
+			fclose(stdout);
+			PROCESS_INFORMATION ProcessInfo;
+			STARTUPINFO StartupInfo; //入口参数
+			ZeroMemory(&StartupInfo, sizeof(StartupInfo));
+			StartupInfo.cb = sizeof StartupInfo; //分配大小
+			if (CreateProcess("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe", "G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe -i G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt -o G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt",
+				NULL, NULL, FALSE, HIGH_PRIORITY_CLASS, NULL,
+				NULL, &StartupInfo, &ProcessInfo))
+			{
+				WaitForSingleObject(ProcessInfo.hProcess, INFINITE);
+				CloseHandle(ProcessInfo.hThread);
+				CloseHandle(ProcessInfo.hProcess);
+			}
+
+			//WinExec("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe -i G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt -o G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt", SW_HIDE); 
+			char result[40];
+			FILE* open = fopen("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt", "r");
+			fgets(result, 40, open);
+			fclose(open);
+			Assert::AreEqual("radius must be greater than 0\n", result);
+
+		};
+		TEST_METHOD(TestMethod47)
+		{
+			FILE* stream1;
+			freopen_s(&stream1, "G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt", "wt", stdout);
+			printf("%d\n", 1);
+			printf("L -100001 0 0 0\n");
+
+			fclose(stdout);
+			PROCESS_INFORMATION ProcessInfo;
+			STARTUPINFO StartupInfo; //入口参数
+			ZeroMemory(&StartupInfo, sizeof(StartupInfo));
+			StartupInfo.cb = sizeof StartupInfo; //分配大小
+			if (CreateProcess("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe", "G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe -i G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt -o G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt",
+				NULL, NULL, FALSE, HIGH_PRIORITY_CLASS, NULL,
+				NULL, &StartupInfo, &ProcessInfo))
+			{
+				WaitForSingleObject(ProcessInfo.hProcess, INFINITE);
+				CloseHandle(ProcessInfo.hThread);
+				CloseHandle(ProcessInfo.hProcess);
+			}
+
+			//WinExec("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe -i G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt -o G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt", SW_HIDE); 
+			char result[40];
+			FILE* open = fopen("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt", "r");
+			fgets(result, 40, open);
+			fclose(open);
+			Assert::AreEqual("coordinate out of range\n", result);
+
+		};
+		TEST_METHOD(TestMethod48)
+		{
+			FILE* stream1;
+			freopen_s(&stream1, "G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt", "wt", stdout);
+			printf("%d\n", 2);
+			printf("L 0 0 1 1\n");
+			printf("L 0 0 2 2\n");
+			fclose(stdout);
+			PROCESS_INFORMATION ProcessInfo;
+			STARTUPINFO StartupInfo; //入口参数
+			ZeroMemory(&StartupInfo, sizeof(StartupInfo));
+			StartupInfo.cb = sizeof StartupInfo; //分配大小
+			if (CreateProcess("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe", "G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe -i G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt -o G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt",
+				NULL, NULL, FALSE, HIGH_PRIORITY_CLASS, NULL,
+				NULL, &StartupInfo, &ProcessInfo))
+			{
+				WaitForSingleObject(ProcessInfo.hProcess, INFINITE);
+				CloseHandle(ProcessInfo.hThread);
+				CloseHandle(ProcessInfo.hProcess);
+			}
+
+			//WinExec("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe -i G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt -o G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt", SW_HIDE); 
+			char result[40];
+			FILE* open = fopen("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt", "r");
+			fgets(result, 40, open);
+			fclose(open);
+			Assert::AreEqual("infinite point\n", result);
+
+		};
+		TEST_METHOD(TestMethod49)
+		{
+			FILE* stream1;
+			freopen_s(&stream1, "G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt", "wt", stdout);
+			printf("%d\n", 1);
+			printf("L 0 0 0 0\n");
+
+			fclose(stdout);
+			PROCESS_INFORMATION ProcessInfo;
+			STARTUPINFO StartupInfo; //入口参数
+			ZeroMemory(&StartupInfo, sizeof(StartupInfo));
+			StartupInfo.cb = sizeof StartupInfo; //分配大小
+			if (CreateProcess("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe", "G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe -i G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt -o G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt",
+				NULL, NULL, FALSE, HIGH_PRIORITY_CLASS, NULL,
+				NULL, &StartupInfo, &ProcessInfo))
+			{
+				WaitForSingleObject(ProcessInfo.hProcess, INFINITE);
+				CloseHandle(ProcessInfo.hThread);
+				CloseHandle(ProcessInfo.hProcess);
+			}
+
+			//WinExec("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\IntersectProject.exe -i G:\\360MoveData\\Users\\HP\\Desktop\\nt\\input.txt -o G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt", SW_HIDE); 
+			char result[40];
+			FILE* open = fopen("G:\\360MoveData\\Users\\HP\\Desktop\\nt\\output.txt", "r");
+			fgets(result, 40, open);
+			fclose(open);
+			Assert::AreEqual("same point in a line\n", result);
+
+		};
 		TEST_METHOD(TestMethod50) {
 			vector <Shape*> allshape1;
 			unordered_set<Point*, Hash_Point, Equal_Point> allpoint1;
